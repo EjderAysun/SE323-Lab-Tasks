@@ -43,7 +43,7 @@ struct Multiset {
 
         /*
         @note
-            helper method for add(element)
+            helper method for add(element) method and count(element) method
         @note
             This method cannot change the value of the parameters entered and data members of the structure.
         @note
@@ -185,5 +185,27 @@ struct Multiset {
             } catch(const string& e) {
                 CatchExceptions(e);
             }
+        }
+
+        /*
+        @note
+            This method cannot change the value of the parameters entered and data members of the structure.
+        */
+        int count(const string element) const{
+            // If "head" node is nullptr then, throw this.
+            if(head == nullptr) {
+                return 0;
+            }
+            // Assign returned optional node pointer to x.
+            optional<Node*> x = tryReturnNode(element);
+            // If x is not nullopt then,
+            if(x.has_value()) {
+                // assign node pointer to node_ptr.
+                Node* nodePtr = x.value();
+                // Then return the number of data.
+                return nodePtr->number;
+            }
+            // If x is nullopt then, throw this.
+            else return 0;
         }
 };
