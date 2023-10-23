@@ -208,4 +208,19 @@ struct Multiset {
             // If x is nullopt then, throw this.
             else return 0;
         }
+
+        /*
+        @note
+            This method cannot change the data members of the structure.
+        */
+        int distinctElements() const {
+            int numberOfDistinctElements = 0;
+            // Count all nodes from head node to current node.
+            for(Node *temp = head; temp != nullptr; temp = temp->next) {
+                // Add 1 to the number of distinct elements in each loop.
+                numberOfDistinctElements++;
+            }
+            // Then return numberOfDistinctElements.
+            return numberOfDistinctElements;
+        }
 };
