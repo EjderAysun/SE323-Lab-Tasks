@@ -223,4 +223,19 @@ struct Multiset {
             // Then return numberOfDistinctElements.
             return numberOfDistinctElements;
         }
+
+        /*
+        @note
+            This method cannot change the data members of the structure.
+        */
+        void printMultiset() const{
+            Node *temp = head;
+            // While temp is not nullptr then,
+            while(temp != nullptr) {
+                // Access "temp"s data and data count and print them.
+                cout << (*temp).data << "," << (*temp).number << endl;
+                // Move to next data
+                temp = temp -> next;
+            }
+        }
 };
